@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "642994656295",
+    "project_id": "we-chat-2df02",
+    "storage_bucket": "we-chat-2df02.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642994656295:android:7e243e24246e3edcb02a02",
+        "android_client_info": {
+          "package_name": "com.akshar.we_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642994656295-acio5us8gfr9u1bb7vjsu0oqp81lef3e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akshar.we_chat",
+            "certificate_hash": "1e1a508fff2a3631c42dea4dd067aeb169b0403d"
+          }
+        },
+        {
+          "client_id": "642994656295-5s9n9laqindgro975du4sa45balk3lnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxJHJ8jWW4A6ozKbs0lPgsgGf9rGGRWIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642994656295-5s9n9laqindgro975du4sa45balk3lnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

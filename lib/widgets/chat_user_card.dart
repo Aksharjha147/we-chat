@@ -9,7 +9,6 @@ import '../screens/chat_screen.dart';
 import 'dialogs/profile_dialog.dart';
 import 'profile_image.dart';
 
-//card to represent a single user in home screen
 class ChatUserCard extends StatefulWidget {
   final ChatUser user;
 
@@ -20,85 +19,78 @@ class ChatUserCard extends StatefulWidget {
 }
 
 class _ChatUserCardState extends State<ChatUserCard> {
-  //last message info (if null --> no message)
   Message? _message;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(horizontal: mq.width * .04, vertical: 4),
-      // color: Colors.blue.shade100,
-      elevation: 0.5,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15))),
-      child: InkWell(
-        borderRadius: const BorderRadius.all(Radius.circular(15)),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: mq.width * .03, vertical: 4),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(color: Color(0x0A000000), blurRadius: 10, offset: Offset(0, 4))
+          ]),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
           onTap: () {
-            //for navigating to chat screen
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (_) => ChatScreen(user: widget.user)));
+            Navigator.push(context, MaterialPageRoute(builder: (_) => ChatScreen(user: widget.user)));
           },
           child: StreamBuilder(
             stream: APIs.getLastMessage(widget.user),
             builder: (context, snapshot) {
               final data = snapshot.data?.docs;
-              final list =
-                  data?.map((e) => Message.fromJson(e.data())).toList() ?? [];
+              final list = data?.map((e) => Message.fromJson(e.data())).toList() ?? [];
               if (list.isNotEmpty) _message = list[0];
 
               return ListTile(
-                //user profile picture
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 leading: InkWell(
                   onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (_) => ProfileDialog(user: widget.user));
+                    showDialog(context: context, builder: (_) => ProfileDialog(user: widget.user));
                   },
-                  child: ProfileImage(
-                      size: mq.height * .055, url: widget.user.image),
+                  child: Hero(
+                    tag: widget.user.id,
+                    child: ProfileImage(size: mq.height * .06, url: widget.user.image),
+                  ),
                 ),
-
-                //user name
-                title: Text(widget.user.name),
-
-                //last message
+                title: Text(widget.user.name,
+                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Color(0xFF202124))),
                 subtitle: Text(
-                    _message != null
-                        ? _message!.type == Type.image
-                            ? 'image'
-                            : _message!.msg
-                        : widget.user.about,
-                    maxLines: 1),
-
-                //last message time
+                  _message != null
+                      ? _message!.type == Type.image
+                          ? '📷 Image'
+                          : _message!.msg
+                      : widget.user.about,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: (_message != null && _message!.read.isEmpty && _message!.fromId != APIs.user.uid)
+                        ? const Color(0xFF1A73E8)
+                        : const Color(0xFF5F6368),
+                    fontWeight: (_message != null && _message!.read.isEmpty && _message!.fromId != APIs.user.uid)
+                        ? FontWeight.w600
+                        : FontWeight.normal,
+                  ),
+                ),
                 trailing: _message == null
-                    ? null //show nothing when no message is sent
-                    : _message!.read.isEmpty &&
-                            _message!.fromId != APIs.user.uid
-                        ?
-                        //show for unread message
-                        const SizedBox(
-                            width: 15,
-                            height: 15,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 0, 230, 119),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                            ),
+                    ? null
+                    : _message!.read.isEmpty && _message!.fromId != APIs.user.uid
+                        ? Container(
+                            width: 12,
+                            height: 12,
+                            decoration: const BoxDecoration(color: Color(0xFF1A73E8), shape: BoxShape.circle),
                           )
-                        :
-                        //message sent time
-                        Text(
-                            MyDateUtil.getLastMessageTime(
-                                context: context, time: _message!.sent),
-                            style: const TextStyle(color: Colors.black54),
+                        : Text(
+                            MyDateUtil.getLastMessageTime(context: context, time: _message!.sent),
+                            style: const TextStyle(color: Color(0xFF80868B), fontSize: 12),
                           ),
               );
             },
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

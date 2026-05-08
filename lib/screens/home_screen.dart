@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 
 import '../api/apis.dart';
 import '../helper/dialogs.dart';
@@ -11,7 +10,6 @@ import '../main.dart';
 import '../models/chat_user.dart';
 import '../widgets/chat_user_card.dart';
 import '../widgets/profile_image.dart';
-import 'ai_screen.dart';
 import 'profile_screen.dart';
 
 //home screen -- where all available contacts are shown
@@ -61,17 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
       //for hiding keyboard when a tap is detected on screen
       onTap: FocusScope.of(context).unfocus,
       child: PopScope(
-        // onWillPop: () {
-        //   if (_isSearching) {
-        //     setState(() {
-        //       _isSearching = !_isSearching;
-        //     });
-        //     return Future.value(false);
-        //   } else {
-        //     return Future.value(true);
-        //   }
-        // },
-
         //if search is on & back button is pressed then close search
         //or else simple close current screen on back button click
         canPop: false,
@@ -142,18 +129,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: _addChatUserDialog,
                   icon: const Icon(CupertinoIcons.person_add, size: 25))
             ],
-          ),
-
-          //floating button to add new user
-          floatingActionButton: Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: FloatingActionButton(
-                backgroundColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const AiScreen()));
-                },
-                child: Lottie.asset('assets/lottie/ai.json', width: 40)),
           ),
 
           //body

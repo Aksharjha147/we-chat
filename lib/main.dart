@@ -17,7 +17,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Load environment variables from .env file
-  await dotenv.load();
+  try {
+    await dotenv.load();
+  } catch (e) {
+    log('Error loading .env file: $e');
+  }
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
@@ -41,18 +45,40 @@ class MyApp extends StatelessWidget {
       title: 'We Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: false,
+        useMaterial3: true,
+        
+        // Premium Google-inspired Color Palette
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF1A73E8),
+          primary: const Color(0xFF1A73E8),
+          secondary: const Color(0xFF5F6368),
+          surface: Colors.white,
+          background: const Color(0xFFF8F9FA), 
+        ),
+
+        // Clean white app bar
         appBarTheme: const AppBarTheme(
           centerTitle: true,
-          elevation: 1,
-          iconTheme: IconThemeData(color: Colors.black),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          foregroundColor: Color(0xFF202124),
           titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.normal,
+            color: Color(0xFF202124),
+            fontWeight: FontWeight.w600,
             fontSize: 19,
           ),
-          backgroundColor: Colors.white,
         ),
+
+        // Modern Rounded FAB
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          elevation: 4,
+          backgroundColor: const Color(0xFF1A73E8),
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        ),
+
+        // Scaffolding background
+        scaffoldBackgroundColor: const Color(0xFFF8F9FA),
       ),
       home: const SplashScreen(),
     );

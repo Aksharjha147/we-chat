@@ -1,119 +1,37 @@
 # 💬 We Chat
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Flutter](https://img.shields.io/badge/Flutter-Cross%20Platform-blue)
-![Dart](https://img.shields.io/badge/Dart-100%25-blue)
+![Firebase](https://img.shields.io/badge/Firebase-Backend-orange)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-A modern, feature-rich, and beautifully designed real-time chat application built with Flutter and Firebase.
+A sleek and modern real-time chat application built using Flutter and Firebase with a clean UI and smooth real-time communication experience.
 
 ---
 
-# ✨ Features
+## ✨ Features
 
 - 🔐 Google Sign-In Authentication
-- 💬 Real-time Messaging with Firebase
-- 👥 Display Only Known/Added Users
-- ➕ Add Users via Email Address
-- 📸 User Profiles with:
-  - Profile Picture
-  - About Section
-  - Last Seen
-  - Account Creation Date
+- 💬 Real-Time Messaging
+- 👥 Add Users by Email
+- 📸 User Profiles
 - ✅ Message Read Status
 - ✏️ Edit & Delete Messages
 - 🔔 Push Notifications
-- 🤖 Google Gemini AI Chatbot Integration
-- 🎨 Clean & Modern Material UI
-- ⚡ Smooth Cross-Platform Performance
+- 🌙 Modern Material Design
+- ⚡ Smooth & Fast Performance
 
 ---
 
-# 📦 Download APKs
-
-## ARM APK (~21 MB)
-Supports ARM v7 & ARM v8 devices.
-
-[⬇ Download ARM APK](https://drive.google.com/file/d/1LGytBaUy4mjAXMAzIL36UDYMq5-RtqZL/view?usp=sharing)
-
----
-
-## Universal APK (~53 MB)
-Supports all Android devices.
-
-[⬇ Download Universal APK](https://drive.google.com/file/d/1fAEIvP8CVsSvoOOovkLRv8zF8CxnpNmn/view?usp=sharing)
-
----
-
-# 📸 Screenshots
-
-> The actual app experience is even better 🚀
-
-<p align="center">
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/1.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/2.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/3.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/4.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/5.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/6.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/7.png" width="30%" />
-  <img src="https://github.com/Akshar/we_chat/blob/master/screenshots/8.png" width="30%" />
-</p>
-
----
-
-# 🤖 Gemini AI Setup
-
-To enable the Gemini AI chatbot feature:
-
-1. Visit Google AI Studio  
-   https://aistudio.google.com/app/apikey
-
-2. Generate your API key
-
-3. Add your API key inside the project configuration
-
----
-
-# 🎥 YouTube Tutorial
-
-Learn how this app was built:
-
-📺 https://youtube.com/playlist?list=PL8kbUJtS6hyal7Uw7wTeYmv7yiNPH5kOq
-
-> Note: This repository includes additional features and improvements beyond the YouTube tutorial.
-
----
-
-# 🛠 Tech Stack
+## 🛠 Tech Stack
 
 - Flutter
 - Dart
 - Firebase Authentication
 - Cloud Firestore
 - Firebase Cloud Messaging
-- Google Gemini AI
 
 ---
 
-# 💙 Support & Feedback
+## ⭐ Support
 
-If you like this project, consider giving it a ⭐ on GitHub.
-
-For suggestions or feedback:
-
-📧 akshar@gmail.com
-
----
-
-# 🏷 Tags
-
-`Flutter Chat App`  
-`Flutter Firebase App`  
-`Flutter Messaging App`  
-`Realtime Chat App`  
-`Firebase Chat Application`  
-`Google Gemini AI`  
-`Cross Platform Flutter App`  
-`Flutter UI`  
-`Material Design`  
-`AI Chatbot Flutter`
+If you like this project, consider giving it a star on GitHub.

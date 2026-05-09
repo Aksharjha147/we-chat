@@ -19,7 +19,7 @@ migrate_working_dir/
 # VS Code
 .vscode/
 
-# Flutter/Dart/Pub related
+# Flutter / Dart / Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
@@ -40,16 +40,20 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# CRITICAL: Firebase & Google Cloud credentials
+# Firebase & Google Cloud credentials
 android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
 google-services.json
-*.json
+GoogleService-Info.plist
+
+# Android local config
 local.properties
-gradle.properties
 
 # Environment variables & secrets
 .env
 .env.local
+
+# API keys / secret files
 lib/api/notification_access_token.dart
 lib/config/api_keys.dart
 lib/constants/secrets.dart
